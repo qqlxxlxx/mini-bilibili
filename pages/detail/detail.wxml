@@ -1,0 +1,52 @@
+<view class="main">
+	<MyTitle></MyTitle>
+	<view class="video-info">
+		<view class="video-wrap">
+			<video src="https://v-cdn.zjol.com.cn/276986.mp4" custom-cache="{{false}}" controls></video>
+		</view>
+		<view class="video-title">{{videoInfo.videoTitle}}</view>
+		<view class="video-info-items">
+			<text class="video-author">{{videoInfo.author}}</text>
+			<text class="video-playcount">{{videoInfo.playCount}}次观看</text>
+			<text class="video-comment">{{videoInfo.commentCount}}弹幕</text>
+			<text class="video-date">{{videoInfo.date}}</text>
+		</view>
+	</view>
+	<view class="video-others">
+		<view class="video-others-item" wx:for="{{othersList}}" wx:key="{{index}}">
+			<view class="other-img">
+				<image src="{{item.imgSrc}}" mode="widthFix"></image>
+				<view class="video-other-info">
+					<text>{{item.playMsg}}</text>
+					<text>{{item.commentCount}}</text>
+					<text>{{item.duration}}</text>
+				</view>
+			</view>
+			<view class="others-title">{{item.title}}</view>
+		</view>
+	</view>
+	<view class="comment-wrap">
+		<view class="comment-total">
+			评论<text>（{{commentData.commentTotalCount}}）</text>
+		</view>
+		<view class="comment-list">
+			<view class="comment-item" wx:for="{{commentData.commentList}}" wx:key="{{index}}">
+				<view class="user-img">
+					<image src="{{item.userIconSrc}}" mode="widthFix"></image>
+				</view>
+				<view class="comment-item-info">
+					<view class="comment-right-top">
+						<text>{{item.username}}</text>
+						<text>{{item.commentDate}}</text>
+					</view>
+					<view class="comment-right-bottom">
+            <text>{{item.commentInfo}}</text>
+          </view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="footer">
+		<text>沪ICP备13002172号-3 bilibili.com © 2009-2019</text>
+	</view>
+</view>
